@@ -18,7 +18,11 @@ export default function Hero() {
               <p className="hero__eyebrow">Adriane Silva · Esteticista</p>
             </div>
             <div className="reveal" style={{ '--reveal-delay': '0.2s' }}>
-              <h1 className="hero__title">Cuidado corporal com resultado que se vê.</h1>
+              <h1 className="hero__title">
+                Cuidado corporal com{' '}
+                <br className="hero__title-break" />
+                resultado que se vê.
+              </h1>
             </div>
             <div className="reveal hero__lead-wrap" style={{ '--reveal-delay': '0.3s' }}>
               <p className="hero__lead">

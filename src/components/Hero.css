@@ -117,6 +117,9 @@
     0 2px 8px rgba(0, 0, 0, 0.28),
     0 1px 2px rgba(0, 0, 0, 0.18);
 }
+.hero__title-break {
+  display: none;
+}
 
 .hero__lead-wrap {
   max-width: 620px;
@@ -284,8 +287,11 @@
     padding: 0 20px;
   }
   .hero__title {
-    font-size: 42px;
-    line-height: 46.2px;
+    font-size: clamp(24px, 7.8vw, 42px);
+    line-height: 1.12;
+  }
+  .hero__title-break {
+    display: inline;
   }
 
   .hero__lead-wrap {
@@ -302,8 +308,18 @@
     display: inline;
   }
 
+  /* bottom: 0 landed the CTA notch exactly flush with hero__bg's own
+     clip edge — zero margin for error. The wing SVGs (97:49 native)
+     render inside a 70:42 box via object-fit:contain, which letterboxes
+     ~3px of transparent padding top/bottom around the drawn curve; with
+     zero overlap that gap sits inside the visible area and lets the
+     photo show through as a hairline seam. Pushing the whole notch a
+     few px past the clip edge (safely clipped away by hero__bg's own
+     overflow: hidden) guarantees full coverage regardless of that gap
+     or any device subpixel rounding — same technique already used for
+     this element at the base/tablet breakpoint (bottom: -26.5px there). */
   .hero__bottom {
-    bottom: 0;
+    bottom: -8px;
     height: 350px;
     padding: 0 20px;
   }
