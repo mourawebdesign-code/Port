@@ -39,7 +39,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 42%;
+  object-position: 56% 42%;
   border-radius: 50px;
 }
 
@@ -69,18 +69,19 @@
   flex: none;
 }
 
-/* Very subtle localized contrast boost behind the hero copy only —
-   not a full-hero overlay, just enough to lift legibility on lighter
-   regions of the photograph. */
+/* Extremely soft cinematic vignette behind the copy — deliberately
+   oversized and inset well past hero__top's own box so the gradient
+   always fades to fully transparent before it reaches its own edge.
+   No hard edge is ever visible, at any content height. */
 .hero__top::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: -70px -60px;
   background: radial-gradient(
-    ellipse 62% 85% at 50% 42%,
-    rgba(17, 17, 17, 0.22) 0%,
-    rgba(17, 17, 17, 0.1) 45%,
-    rgba(17, 17, 17, 0) 75%
+    ellipse 62% 68% at 50% 50%,
+    rgba(0, 0, 0, 0.17) 0%,
+    rgba(0, 0, 0, 0.08) 42%,
+    rgba(0, 0, 0, 0) 75%
   );
   z-index: -1;
   pointer-events: none;
@@ -99,7 +100,9 @@
   text-align: center;
   color: var(--surface);
   opacity: 0.85;
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.35);
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.22),
+    0 1px 1px rgba(0, 0, 0, 0.14);
 }
 
 .hero__title {
@@ -110,11 +113,13 @@
   line-height: 99px;
   text-align: center;
   color: var(--text-light);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.28),
+    0 1px 2px rgba(0, 0, 0, 0.18);
 }
 
 .hero__lead-wrap {
-  max-width: 440px;
+  max-width: 620px;
   width: 100%;
 }
 
@@ -124,19 +129,27 @@
   font-weight: 500;
   text-align: center;
   color: var(--surface);
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.35);
+  text-shadow:
+    0 1px 6px rgba(0, 0, 0, 0.24),
+    0 1px 2px rgba(0, 0, 0, 0.16);
 }
 .hero__lead-break {
   display: none;
 }
 
-/* ---------- wheel stage ---------- */
+/* ---------- wheel stage ----------
+   Taken out of the centered flex flow so hero__top can be vertically
+   centered within the full available height instead of being squeezed
+   together with this mostly-empty block. Anchored at the exact offset
+   it already rendered at (measured pre-change), so the CTA notch stays
+   pixel-identical — same edge overflow/clip as before. */
 .hero__bottom {
-  position: relative;
+  position: absolute;
+  left: 0;
+  bottom: -26.5px;
   z-index: 1;
   width: 100%;
   height: 476px;
-  flex: none;
   padding: 0 50px;
   overflow: hidden;
   display: flex;
@@ -245,7 +258,7 @@
 @media (max-width: 809.98px) {
   .hero {
     gap: 50px;
-    padding: 70px 0 100px;
+    padding: 40px 0 100px;
   }
   .hero__container {
     padding: 0 10px;
@@ -259,7 +272,7 @@
   }
   .hero__photo {
     border-radius: 30px 30px 20px 20px;
-    object-position: 50% 30%;
+    object-position: 56% 30%;
   }
   .hero__overlay {
     inset: 0 0 auto 0;
@@ -269,7 +282,6 @@
   .hero__top {
     gap: 10px;
     padding: 0 20px;
-    height: 219px;
   }
   .hero__title {
     font-size: 42px;
@@ -291,6 +303,7 @@
   }
 
   .hero__bottom {
+    bottom: 0;
     height: 350px;
     padding: 0 20px;
   }

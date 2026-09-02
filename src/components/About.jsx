@@ -10,18 +10,18 @@ export default function About() {
             <div className="approach__left reveal">
               <img
                 className="approach__photo"
-                src="/images/espaco-delas/doutora.jpg"
-                alt="Andreza Lima, Espaço Delas"
+                src="/images/adrianesilva/about-adriane-escritorio.jpg"
+                alt="Adriane Silva, esteticista, em seu espaço de atendimento"
               />
               <div className="approach__caption">
                 <div className="approach__info">
                   <div className="approach__info-overlay" />
                   <div className="approach__info-content">
-                    <h2 className="approach__name">Andreza Lima</h2>
-                    <p className="approach__role">Fundadora do Espaço Delas</p>
+                    <h2 className="approach__name">Adriane Silva</h2>
+                    <p className="approach__role">Esteticista</p>
                   </div>
                   <span className="approach__info-icon">
-                    <img src="/images/espaco-delas/icon-badge.svg" alt="" />
+                    <img src="/images/adrianesilva/icon-badge.svg" alt="" />
                   </span>
                 </div>
               </div>
@@ -31,12 +31,12 @@ export default function About() {
               <div className="approach__title">
                 <div className="badge">
                   <span className="badge__dot" />
-                  <p className="badge__label">O Espaço Delas</p>
+                  <p className="badge__label">Sobre a Adriane</p>
                 </div>
-                <h2 className="approach__heading">Um espaço criado para cuidar de você.</h2>
+                <h2 className="approach__heading">Mais de 10 anos cuidando de cada corpo.</h2>
                 <p className="approach__lead">
-                  Aqui, cada cliente é acolhida e cuidada com dedicação verdadeira — em
-                  atendimentos que começam sempre por uma avaliação personalizada.
+                  Esteticista e criadora dos protocolos Cintura Fina e Lipodetox — cada
+                  atendimento começa com uma avaliação personalizada para o seu objetivo.
                 </p>
               </div>
 
@@ -44,7 +44,7 @@ export default function About() {
                 {approachList.map((item) => (
                   <div className="approach__item" key={item.text}>
                     <span className="approach__item-box">
-                      <img src={`/images/espaco-delas/${item.icon}`} alt="" />
+                      <img src={`/images/adrianesilva/${item.icon}`} alt="" />
                     </span>
                     <p className="approach__item-text">{item.text}</p>
                   </div>
@@ -59,7 +59,7 @@ export default function About() {
                   rel="noopener noreferrer"
                 >
                   <span className="btn-icon__box">
-                    <img src="/images/espaco-delas/icon-arrow.svg" alt="" />
+                    <img src="/images/adrianesilva/icon-arrow.svg" alt="" />
                   </span>
                   <span className="btn-icon__label">Agende sua avaliação</span>
                 </a>

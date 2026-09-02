@@ -50,10 +50,10 @@ export default function Navbar() {
           <div className="nav__logo">
             <a href="#top">
               <img
-                src="/images/espaco-delas/logo-espaco-delas.png"
-                alt="Espaço Delas — Andreza Lima"
-                width="172"
-                height="57"
+                src="/images/adrianesilva/logo-adriane-silva-dark.png"
+                alt="Adriane Silva Estética Facial e Corporal"
+                width="170"
+                height="96"
               />
             </a>
           </div>
@@ -66,7 +66,7 @@ export default function Navbar() {
               className="btn-icon nav__cta"
             >
               <span className="btn-icon__box">
-                <img src="/images/espaco-delas/icon-nav-star.svg" alt="" />
+                <img src="/images/adrianesilva/icon-nav-star.svg" alt="" />
               </span>
               <span className="btn-icon__label">
                 <span className="nav__cta-full">Agende sua avaliação</span>

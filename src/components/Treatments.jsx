@@ -39,7 +39,7 @@ export default function Treatments() {
                   <div className="acc__top">
                     <div className="acc__left">
                       <span className="acc__icon">
-                        <img src={`/images/espaco-delas/${t.icon}`} alt="" />
+                        <img src={`/images/adrianesilva/${t.icon}`} alt="" />
                       </span>
                       <h2 className="acc__title">{t.title}</h2>
                     </div>
@@ -68,7 +68,7 @@ export default function Treatments() {
 
                 <div className="acc__preview" aria-hidden="true">
                   <img
-                    src={`/images/espaco-delas/treatments/${t.image}`}
+                    src={`/images/adrianesilva/treatments/${t.image}`}
                     alt=""
                     loading="lazy"
                   />
@@ -81,8 +81,8 @@ export default function Treatments() {
                   <div className="acc__answer-inner" ref={setPanel(i)}>
                     <div className="acc__media">
                       <img
-                        src={`/images/espaco-delas/treatments/${t.image}`}
-                        alt={`${t.title} — Espaço Delas`}
+                        src={`/images/adrianesilva/treatments/${t.image}`}
+                        alt={`${t.title} — Adriane Silva Estética`}
                         loading="lazy"
                       />
                     </div>

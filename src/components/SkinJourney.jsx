@@ -3,10 +3,10 @@ import { gallery, journeyWords } from '../data'
 import './SkinJourney.css'
 
 const galleryAlts = {
-  a: 'Sessão de ventosaterapia no Espaço Delas',
-  b: 'Massagem modeladora sendo aplicada nas pernas no Espaço Delas',
-  c: 'Detalhe do resultado Delas Sculpt Touch',
-  d: 'Antes e depois de tratamento facial no Espaço Delas',
+  a: 'Entrada do espaço de atendimento de Adriane Silva Estética',
+  b: 'Sala de atendimento de Adriane Silva Estética',
+  c: 'Resultado real de cliente após o protocolo Cintura Fina',
+  d: 'Cliente recebendo o presente de boas-vindas no espaço',
 }
 
 const gallerySlides = Object.keys(gallery).map((key) => ({
@@ -51,7 +51,7 @@ export default function SkinJourney() {
                 imgIndex += 1
                 return (
                   <span className={`journey__img journey__img--${imgIndex}`} key={i}>
-                    <img src={`/images/espaco-delas/${w.img}`} alt="" />
+                    <img src={`/images/adrianesilva/${w.img}`} alt="" />
                   </span>
                 )
               }
@@ -65,10 +65,10 @@ export default function SkinJourney() {
 
           <div className="journey__review">
             <div className="journey__rating">
-              <img src="/images/espaco-delas/icon-flower.svg" alt="" />
+              <img src="/images/adrianesilva/icon-flower.svg" alt="" />
             </div>
             <div className="journey__review-content">
-              <p className="journey__review-label">Resultados que você pode ver.</p>
+              <p className="journey__review-label">Protocolos próprios, feitos sob medida.</p>
             </div>
           </div>
         </div>
@@ -77,28 +77,28 @@ export default function SkinJourney() {
           <div className="journey__row">
             <div className="journey__media journey__media--a">
               <img
-                src={`/images/espaco-delas/${gallery.a}`}
-                alt="Sessão de ventosaterapia no Espaço Delas"
+                src={`/images/adrianesilva/${gallery.a}`}
+                alt="Entrada do espaço de atendimento de Adriane Silva Estética"
               />
             </div>
             <div className="journey__media journey__media--b">
               <img
-                src={`/images/espaco-delas/${gallery.b}`}
-                alt="Massagem modeladora sendo aplicada nas pernas no Espaço Delas"
+                src={`/images/adrianesilva/${gallery.b}`}
+                alt="Sala de atendimento de Adriane Silva Estética"
               />
             </div>
           </div>
           <div className="journey__row">
             <div className="journey__media journey__media--c">
               <img
-                src={`/images/espaco-delas/${gallery.c}`}
-                alt="Detalhe do resultado Delas Sculpt Touch"
+                src={`/images/adrianesilva/${gallery.c}`}
+                alt="Resultado real de cliente após o protocolo Cintura Fina"
               />
             </div>
             <div className="journey__media journey__media--d">
               <img
-                src={`/images/espaco-delas/${gallery.d}`}
-                alt="Antes e depois de tratamento facial no Espaço Delas"
+                src={`/images/adrianesilva/${gallery.d}`}
+                alt="Cliente recebendo o presente de boas-vindas no espaço"
               />
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function SkinJourney() {
           <div className="journey__carousel" ref={carouselRef} onScroll={handleScroll}>
             {gallerySlides.map((slide) => (
               <div className="journey__slide" key={slide.key}>
-                <img src={`/images/espaco-delas/${slide.src}`} alt={slide.alt} />
+                <img src={`/images/adrianesilva/${slide.src}`} alt={slide.alt} />
               </div>
             ))}
           </div>
