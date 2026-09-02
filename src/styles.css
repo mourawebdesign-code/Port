@@ -1,0 +1,180 @@
+/* ============================================================
+   Fonts
+   ============================================================ */
+@font-face {
+  font-family: "Hedvig Letters Serif";
+  src: url("/fonts/HedvigLettersSerif-400.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-500.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-600.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-700.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ============================================================
+   Tokens (extracted from the reference)
+   ============================================================ */
+:root {
+  /* palette extracted from the Espaço Delas logo (taupe) and brief (off-white / black) */
+  --background: #f7f5f1;
+  --surface: #ece6de;
+  --accent: #b6a99f;
+  --text-primary: #1a1714;
+  --text-secondary: #6b645d;
+  --text-light: #fffdfb;
+  --white: #ffffff;
+  --eyebrow: #8a7d70;
+  --dark: #111111;
+  --border-soft: rgba(17, 17, 17, 0.1);
+  --border-glass: rgba(255, 255, 255, 0.35);
+  --accent-06: rgba(182, 169, 159, 0.12);
+  --accent-10: rgba(182, 169, 159, 0.18);
+
+  --serif: "Hedvig Letters Serif", "Times New Roman", serif;
+  --sans: "General Sans", Arial, sans-serif;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+#tratamentos,
+#sobre { scroll-margin-top: 100px; }
+@media (max-width: 809.98px) {
+  #tratamentos,
+  #sobre { scroll-margin-top: 76px; }
+}
+
+body {
+  background: var(--background);
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+  /* overflow-x: hidden here would implicitly force overflow-y: auto (CSS
+     overflow spec), turning body into its own scroll container and
+     breaking position: sticky on the header. overflow-x: clip avoids that
+     scrollbar pairing while still preventing horizontal overflow. */
+  overflow-x: clip;
+}
+
+h1, h2, h3, p, figure { margin: 0; }
+h1, p { text-wrap: balance; }
+h2 { text-wrap: wrap; }
+a { text-decoration: none; color: inherit; }
+img, video { display: block; max-width: 100%; }
+button { font: inherit; border: 0; background: none; padding: 0; cursor: pointer; color: inherit; }
+
+/* ============================================================
+   Shared atoms
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 30px;
+  background: var(--accent-06);
+}
+.badge__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background: var(--eyebrow);
+  flex: none;
+}
+.badge__label {
+  font-size: 12px;
+  line-height: 15.6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+  white-space: nowrap;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px 10px 10px;
+  border-radius: 30px;
+  background: var(--surface);
+  overflow: hidden;
+  transition: background-color 0.3s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.btn-icon__box {
+  width: 24px;
+  height: 24px;
+  border-radius: 30px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.btn-icon__box img { width: 12px; height: 12px; }
+.btn-icon__label {
+  font-size: 14px;
+  line-height: 18.2px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px 10px 10px;
+  border-radius: 30px;
+  background: var(--dark);
+  overflow: hidden;
+  transition: background-color 0.3s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.btn-primary .btn-icon__label { color: var(--white); }
+.btn-primary .btn-icon__box { background: var(--white); }
+
+/* Scroll reveal (mirrors the reference appear effect) */
+.reveal {
+  opacity: 0.001;
+  transform: translateY(80px) scale(0.9);
+  will-change: transform, opacity;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 2s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0.2s),
+    transform 2s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0.2s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}

@@ -1,0 +1,349 @@
+.services {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 200px;
+  overflow: clip;
+}
+
+.services__container {
+  position: relative;
+  width: 100%;
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 50px;
+}
+
+.services__title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.services__heading {
+  width: 100%;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 84px;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* ---------- accordion ---------- */
+.services__accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.acc__item {
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: inset 0 0 0 1px var(--border-soft);
+  background: var(--background);
+  cursor: pointer;
+  transition: background 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.acc__item.is-open {
+  background: var(--surface);
+}
+
+/* keep the answer panel's own corners/height-clip contained,
+   while letting the floating preview overflow the row on desktop */
+.acc__question,
+.acc__answer {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.acc__question {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  padding: 50px;
+}
+
+.acc__top {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  overflow: clip;
+}
+
+.acc__left {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  overflow: clip;
+}
+
+.acc__icon {
+  width: 50px;
+  height: 50px;
+  flex: none;
+  display: block;
+}
+.acc__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.acc__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 55.2px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.acc__item:hover .acc__title {
+  transform: translateX(6px);
+}
+
+.acc__right {
+  flex: none;
+  width: 440px;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  overflow: clip;
+}
+
+.acc__desc {
+  font-size: 18px;
+  line-height: 23.4px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.acc__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: var(--surface);
+  transition: background 0.35s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.acc__button span {
+  font-size: 14px;
+  line-height: 18.2px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.acc__item.is-open .acc__button {
+  background: var(--background);
+}
+.acc__button:hover,
+.acc__item:hover .acc__button {
+  background: var(--accent);
+}
+.acc__button:hover span,
+.acc__item:hover .acc__button span {
+  color: var(--white);
+}
+
+.acc__switcher {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 50px;
+  background: var(--white);
+}
+.acc__bar {
+  position: absolute;
+  border-radius: 5px;
+  background: var(--accent);
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1), opacity 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.acc__bar--h {
+  top: 14px;
+  left: 8px;
+  width: 14px;
+  height: 2px;
+}
+.acc__bar--v {
+  top: 8px;
+  left: 14px;
+  width: 2px;
+  height: 14px;
+}
+.acc__item.is-open .acc__bar--v {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+/* ---------- floating hover preview (desktop only) ---------- */
+.acc__preview {
+  position: absolute;
+  top: 50%;
+  right: 96px;
+  width: 210px;
+  height: 262px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(17, 17, 17, 0.32);
+  opacity: 0;
+  transform: translateY(-50%) translateY(10px) scale(0.96);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+.acc__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .acc__item:hover {
+    z-index: 10;
+  }
+  .acc__item:hover .acc__preview {
+    opacity: 1;
+    transform: translateY(-50%) translateY(0) scale(1);
+  }
+  /* on desktop the image lives only in the floating preview */
+  .acc__answer {
+    display: none;
+  }
+}
+
+/* ---------- answer (mobile / tablet tap-to-reveal) ---------- */
+.acc__answer {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.6s cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+.acc__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 320px;
+  border-radius: 20px;
+  overflow: clip;
+  margin: 0 50px 50px;
+}
+.acc__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* ---------- Tablet + Mobile : the reference switches to the stacked variant ---------- */
+@media (max-width: 1199.98px) {
+  .services {
+    padding-bottom: 110px;
+  }
+  .services__container {
+    gap: 50px;
+  }
+  .services__heading {
+    font-size: 56px;
+    line-height: 67.2px;
+  }
+
+  .acc__question {
+    padding: 20px;
+  }
+  .acc__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .acc__left {
+    flex: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .acc__icon {
+    width: 30px;
+    height: 30px;
+  }
+  .acc__title {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+  .acc__right {
+    width: 100%;
+    max-width: 440px;
+  }
+  .acc__switcher {
+    width: 40px;
+    height: 40px;
+  }
+  .acc__bar--h {
+    top: 19px;
+    left: 14px;
+    width: 12px;
+    height: 2px;
+  }
+  .acc__bar--v {
+    top: 14px;
+    left: 19px;
+    width: 2px;
+    height: 12px;
+  }
+  .acc__media {
+    max-width: 240px;
+    margin: 0 20px 20px;
+  }
+}
+
+/* ---------- Mobile : <= 809.98 ---------- */
+@media (max-width: 809.98px) {
+  .services {
+    padding-bottom: 90px;
+  }
+  .services__container {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  .services__heading {
+    font-size: 38px;
+    line-height: 45.6px;
+  }
+  .acc__title {
+    white-space: normal;
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+  .acc__media {
+    max-width: 100%;
+    margin: 0 20px 20px;
+  }
+}
